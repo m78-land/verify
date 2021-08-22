@@ -7,8 +7,8 @@
 <br>
 
 <p align="center">
-    <span>en</span> | 
-    <a href="./README.zh-cn.md">中文</a>
+    <a href="./README.md">en</a> | 
+    <span>中文</span>
 </p>
 
 <br>
