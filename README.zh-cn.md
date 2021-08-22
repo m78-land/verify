@@ -7,7 +7,7 @@
 <br>
 
 <p align="center">
-    <a href="./readme.md">en</a> | 
+    <a href="./README.md">en</a> | 
     <span>中文</span>
 </p>
 
