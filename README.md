@@ -6,6 +6,13 @@
 
 <br>
 
+<p align="center">
+    <span>en</span> | 
+    <a href="./README.zh-cn.md">中文</a>
+</p>
+
+<br>
+
 <!-- TOC -->
 
 - [Features](#features)
@@ -319,8 +326,7 @@ const verify = createVerify({
 
 如果有任何疑惑，可以参考默认语言模板配置
 
-```json
-
+```js
 export const english = {
   required: 'Required',
   object: 'Must be a regular object',
