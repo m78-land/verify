@@ -1,4 +1,4 @@
-<h1 align="center" style="color: #61dafb;">Verify</h1>
+<h1 align="center" style="color: #61dafb;">Wine</h1>
 
 <br>
 
@@ -6,29 +6,32 @@
 
 <br>
 
-* 1. [Features](#Features)
-* 2. [usage](#usage)
-	* 2.1. [基础](#)
-	* 2.2. [异步验证&单值验证](#-1)
-	* 2.3. [name取值示例](#name)
-	* 2.4. [验证器](#-1)
-	* 2.5. [嵌套验证](#-1)
-	* 2.6. [自定义提示模板](#-1)
-	* 2.7. [函数参数验证](#-1)
-* 3. [API](#API)
-	* 3.1. [NamePath](#NamePath)
-	* 3.2. [Verify](#Verify)
-	* 3.3. [Schema](#Schema)
-	* 3.4. [Validator](#Validator)
-	* 3.5. [Meta](#Meta)
-	* 3.6. [RejectMeta](#RejectMeta)
-	* 3.7. [Config](#Config)
+<!-- TOC -->
 
+- [Features](#features)
+- [usage](#usage)
+    - [基础](#基础)
+    - [异步验证&单值验证](#异步验证单值验证)
+    - [name取值示例](#name取值示例)
+    - [验证器](#验证器)
+    - [嵌套验证](#嵌套验证)
+    - [自定义提示模板](#自定义提示模板)
+    - [函数参数验证](#函数参数验证)
+- [API](#api)
+    - [NamePath](#namepath)
+    - [Verify](#verify)
+    - [Schema](#schema)
+    - [Validator](#validator)
+    - [Meta](#meta)
+    - [RejectMeta](#rejectmeta)
+    - [Config](#config)
+
+<!-- /TOC -->
 
 <br>
 
 
-##  1. <a name='Features'></a>Features
+## Features
 
 - 覆盖多种验证类型, object验证，array验证，复杂嵌套结构验证，异步验证, 函数参数验证。
 - 很小的体积。
@@ -40,9 +43,9 @@
 
 <br>
 
-##  2. <a name='usage'></a>usage
+## usage
 
-###  2.1. <a name=''></a>基础
+### 基础
 
 安装依赖
 
@@ -94,7 +97,7 @@ const rejects = verify.check(data, schema);
 
 
 
-###  2.2. <a name='-1'></a>异步验证&单值验证
+### 异步验证&单值验证
 
 执行异步验证
 
@@ -138,7 +141,7 @@ const rejects = verify.singleCheck(123, {
 
 
 
-###  2.3. <a name='name'></a>name取值示例
+### name取值示例
 
 Schema的name支持嵌套取值
 
@@ -156,7 +159,7 @@ Schema的name支持嵌套取值
 
 
 
-###  2.4. <a name='-1'></a>验证器
+### 验证器
 
 验证器分为同步验证器和异步验证器
 
@@ -192,7 +195,7 @@ async function asyncCheck({ value }) {
 
 
 
-###  2.5. <a name='-1'></a>嵌套验证
+### 嵌套验证
 
 支持任意结构和深度的嵌套值验证, schema配置严格子级结构，eachSchema配置所有直接子级应遵循的结构
 
@@ -277,7 +280,7 @@ verify2.check(data, schema);
 
 
 
-###  2.6. <a name='-1'></a>自定义提示模板
+### 自定义提示模板
 
 内置了中文和英文两种提示模板，在创建实例时通过如下方式配置
 
@@ -373,7 +376,7 @@ export const english = {
 
 
 
-###  2.7. <a name='-1'></a>函数参数验证
+### 函数参数验证
 
 ```typescript
 function fn(...args) {
@@ -423,9 +426,9 @@ fn();
 
 <br>
 
-##  3. <a name='API'></a>API
+## API
 
-###  3.1. <a name='NamePath'></a>NamePath
+### NamePath
 
 ```typescript
 /**
@@ -438,7 +441,7 @@ export type NamePath = string | string[];
 
 
 
-###  3.2. <a name='Verify'></a>Verify
+### Verify
 
 验证器实例
 
@@ -470,7 +473,7 @@ interface Verify {
 
 
 
-###  3.3. <a name='Schema'></a>Schema
+### Schema
 
 表示模式配置中的一项
 
@@ -498,7 +501,7 @@ interface Schema {
 
 
 
-###  3.4. <a name='Validator'></a>Validator
+### Validator
 
 ```typescript
 /**
@@ -528,7 +531,7 @@ export interface AsyncValidator {
 
 
 
-###  3.5. <a name='Meta'></a>Meta
+### Meta
 
 一个描述验证信息的对象
 
@@ -560,7 +563,7 @@ interface Meta {
 
 
 
-###  3.6. <a name='RejectMeta'></a>RejectMeta
+### RejectMeta
 
 描述验证失败信息的对象, 除了新增了一个message字段外与Meta完全相同
 
@@ -573,7 +576,7 @@ interface RejectMetaItem extends Meta {
 
 
 
-###  3.7. <a name='Config'></a>Config
+### Config
 
 共有两种配置, 一是创建verify时的配置，二是执行验证检测的配置
 
