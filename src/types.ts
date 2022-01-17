@@ -1,4 +1,4 @@
-import { AnyObject } from '@lxjx/utils';
+import { AnyObject, NamePath } from '@lxjx/utils';
 
 /** 错误模板值允许的类型 */
 export type ErrorTemplateType = string | ((meta: Meta) => string);
@@ -12,11 +12,6 @@ export interface ErrorTemplateInterpolate {
 }
 
 /**
- * 表示name的字符或字符数组，数组用法用于链式取值，如: ['user', 'address']、['1', 'name']、['list', '4', 'name']
- * */
-export type NamePath = string | string[];
-
-/**
  * 验证器，验证器有三种类型的返回值:
  * - 1.返回string, 表示包含错误并将其作为错误反馈文本返回
  * - 2.接收Meta并返回string的函数，返回的string与上一条中的作用一样, 此用法通常用于搭配languagePack，一般不会使用
@@ -26,6 +21,8 @@ export type NamePath = string | string[];
  * */
 export interface Validator {
   (meta: Meta): void | ErrorTemplateType | ErrorTemplateInterpolate;
+  /** 可选的验证器标识, 用来帮助判断 */
+  key?: string;
 }
 
 /**
@@ -38,6 +35,8 @@ export interface Validator {
  * */
 export interface AsyncValidator {
   (meta: Meta): Promise<void | ErrorTemplateType | ErrorTemplateInterpolate>;
+  /** 可选的验证器标识 */
+  key?: string;
 }
 
 /** verify创建配置 */
@@ -142,3 +141,5 @@ export interface Verify {
   /** 当前使用的languagePack */
   readonly languagePack: AnyObject;
 }
+
+export { NamePath };

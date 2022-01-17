@@ -1089,7 +1089,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.8.4":
   version "7.13.10"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.13.10.tgz?cache=0&sync_timestamp=1615243551514&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
   integrity sha1-R9QqV7YJX0Ro2kQDiP262L6/DX0=
@@ -1418,14 +1418,13 @@
     "@umijs/fabric" "2.2.0"
     prettier "^2.0.5"
 
-"@lxjx/utils@^1.14.0":
-  version "1.14.0"
-  resolved "https://registry.npmjs.org/@lxjx/utils/-/utils-1.14.0.tgz#2f9c68017e19591f47a6b18a2659c830e68bf100"
-  integrity sha512-IqlaXzCyWSld7KdB3MmKCio1BDMDEQvb7VHc9lSHWw+uSXNABbNoWhNBjGLCnZUBLwDMbowE7+gNlYlSfQqP0A==
+"@lxjx/utils@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.npmjs.org/@lxjx/utils/-/utils-1.16.0.tgz#60870c40ba8858f0cf84fc7f9682650443d310a0"
+  integrity sha512-ckpAk1vXTU1auv+kWnj2Eb4QzHgSNeQehkInM07WSAa/B7y8cJ2vV2+kqdeYD3ZvtPvB6/u2ibbVUalBFTj3Tg==
   dependencies:
-    "@babel/runtime" "^7.7.6"
-    "@types/node" "^13.11.0"
-    "@types/react" "^17.0.9"
+    lodash "^4.17.21"
+    tslib "^2.1.0"
 
 "@mdn/browser-compat-data@^2.0.7":
   version "2.0.7"
@@ -1671,11 +1670,6 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.35.tgz?cache=0&sync_timestamp=1615834840617&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.14.35.tgz#42c953a4e2b18ab931f72477e7012172f4ffa313"
   integrity sha1-QslTpOKxirkx9yR35wEhcvT/oxM=
 
-"@types/node@^13.11.0":
-  version "13.13.47"
-  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.13.47.tgz?cache=0&sync_timestamp=1615834840617&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-13.13.47.tgz#6eca42c3462821309b26edbc2eff0db1e37ab9bc"
-  integrity sha1-bspCw0YoITCbJu28Lv8NseN6ubw=
-
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.npm.taobao.org/@types/normalize-package-data/download/@types/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -1722,15 +1716,6 @@
   version "17.0.3"
   resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-17.0.3.tgz?cache=0&sync_timestamp=1615114060788&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-17.0.3.tgz#ba6e215368501ac3826951eef2904574c262cc79"
   integrity sha1-um4hU2hQGsOCaVHu8pBFdMJizHk=
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^17.0.9":
-  version "17.0.10"
-  resolved "https://registry.npmjs.org/@types/react/-/react-17.0.10.tgz#c8bb4e37cc642f7cc5532959cb5e2ead6c74dec9"
-  integrity sha512-+Tc5aGO49L/cjFBfpIPB398ztmAUChglc+a+EYlvphMOMvwUEzmLiyfmnEseGE7inMO6XiSffHmXVPC8GonksQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -8490,6 +8475,11 @@ tslib@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.1.0.tgz?cache=0&sync_timestamp=1609887446826&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
+
+tslib@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 tsutils@^3.17.1:
   version "3.21.0"

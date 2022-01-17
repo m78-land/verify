@@ -1,14 +1,22 @@
 import { Meta } from '@m78/verify';
 
-function isEmial(email: string) {
+function isEmail(email: string) {
   return /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(
     email,
   );
 }
 
+export const emailValidatorKey = 'verifyEmail';
+
 /**
  * 是否为有效email
  * */
-export const email = () => ({ value, config }: Meta) => {
-  if (!isEmial(value)) return config.languagePack.email;
+export const email = () => {
+  function emailValidator({ value, config }: Meta) {
+    if (!isEmail(value)) return config.languagePack.email;
+  }
+
+  emailValidator.key = emailValidatorKey;
+
+  return emailValidator;
 };

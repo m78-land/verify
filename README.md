@@ -38,7 +38,7 @@
 <br>
 
 
-## .1. Features
+## Features
 
 - Covers multiple validation types, object validation, array validation, complex nested structure validation, asynchronous validation, function parameter validation.
 
@@ -54,9 +54,9 @@
 
 <br>
 
-## .2. usage
+## usage
 
-### .2.1. Basic
+### Basic
 
 Install dependencies
 
@@ -108,7 +108,7 @@ const rejects = verify.check(data, schema);
 
 
 
-### .2.2. Asynchronous verification & single verification
+### Asynchronous verification & single verification
 
 Perform asynchronous verification
 
@@ -150,7 +150,7 @@ const rejects = verify.singleCheck(123, {
 
 
 
-### .2.3. Name Example
+### Name Example
 
 Schema name supports nested values
 
@@ -168,7 +168,7 @@ Schema name supports nested values
 
 
 
-### .2.4. Validator
+### Validator
 
 Validators are divided into synchronous validators and asynchronous validators
 
@@ -204,7 +204,7 @@ See the Validator section below for more details on validators
 
 
 
-### .2.5. Nested validation
+### Nested validation
 
 Support for arbitrary structure and depth of nested value validation, schema configuration strict substructure, eachSchema configuration all direct children should follow the structure
 
@@ -289,7 +289,7 @@ verify2.check(data, schema);
 
 
 
-### .2.6. Customize prompt template
+### Customize prompt template
 
 Chinese and English prompt templates are built-in, which can be configured as follows when creating an instance
 
@@ -384,7 +384,7 @@ export const english = {
 
 
 
-### .2.7. Function parameter validation
+### Function parameter validation
 
 ```typescript
 function fn(...args) {
@@ -434,9 +434,17 @@ fn();
 
 <br>
 
-## .2. API
+## API
 
-### .2.1. NamePath
+### built-in Validator
+
+see: https://github.com/m78-core/verify/tree/main/src/validator
+
+
+
+
+
+### NamePath
 
 ```typescript
 /**
@@ -449,7 +457,7 @@ export type NamePath = string | string[];
 
 
 
-### .2.2. Verify
+### Verify
 
 验证器实例
 
@@ -481,7 +489,7 @@ interface Verify {
 
 
 
-### .2.3. Schema
+### Schema
 
 Represents an entry in the pattern configuration
 
@@ -509,7 +517,7 @@ interface Schema {
 
 
 
-### .2.4. Validator
+### Validator
 
 ```typescript
 /**
@@ -522,6 +530,8 @@ interface Schema {
  * */
 export interface Validator {
   (meta: Meta): void | ErrorTemplateType | ErrorTemplateInterpolate;
+  /** Optional verifier ID to help determine */
+  key?: string;
 }
 
 /**
@@ -534,12 +544,14 @@ export interface Validator {
  * */
 export interface AsyncValidator {
   (meta: Meta): Promise<void | ErrorTemplateType | ErrorTemplateInterpolate>;
+  /** Optional verifier ID to help determine */
+  key?: string;
 }
 ```
 
 
 
-### .2.5. Meta
+### Meta
 
 An object that describes the validation information
 
@@ -571,7 +583,7 @@ interface Meta {
 
 
 
-### .2.6. RejectMeta
+### RejectMeta
 
 The object that describes the validation failure information is identical to the Meta except for the addition of a message field
 
@@ -584,7 +596,7 @@ interface RejectMetaItem extends Meta {
 
 
 
-### .2.7. Config
+### Config
 
 There are two configurations: the configuration for creating Verify and the configuration for performing verification checks
 

@@ -10,57 +10,65 @@ interface Opt {
   at?: any;
 }
 
+export const dateValidatorKey = 'verifyDate';
+
 /**
  * 必须是有效的日期对象或能被解析的日期值(时间戳、日期字符串等)
  * */
-export const date = (option?: Opt) => ({ value, config }: Meta) => {
-  const pack = config.languagePack.date;
-  const d = parseDate(value);
+export const date = (option?: Opt) => {
+  function dateValidator({ value, config }: Meta) {
+    const pack = config.languagePack.date;
+    const d = parseDate(value);
 
-  if (d === null)
-    return {
-      errorTemplate: pack.notExpected,
-      interpolateValues: option || {},
+    if (d === null)
+      return {
+        errorTemplate: pack.notExpected,
+        interpolateValues: option || {},
+      };
+
+    if (!option) return;
+
+    const at = parseDate(option.at);
+    const max = parseDate(option.max);
+    const min = parseDate(option.min);
+
+    const interpolateValues = {
+      at: datetime(at) || at,
+      max: datetime(max) || max,
+      min: datetime(min) || min,
     };
 
-  if (!option) return;
+    if (at !== null && d.getTime() !== at.getTime())
+      return {
+        errorTemplate: pack.at,
+        interpolateValues,
+      };
 
-  const at = parseDate(option.at);
-  const max = parseDate(option.max);
-  const min = parseDate(option.min);
+    if (
+      max !== null &&
+      min !== null &&
+      (d.getTime() > max.getTime() || d.getTime() < min.getTime())
+    ) {
+      return {
+        errorTemplate: pack.between,
+        interpolateValues,
+      };
+    }
 
-  const interpolateValues = {
-    at: datetime(at) || at,
-    max: datetime(max) || max,
-    min: datetime(min) || min,
-  };
+    if (max !== null && d.getTime() > max.getTime())
+      return {
+        errorTemplate: pack.max,
+        interpolateValues,
+      };
 
-  if (at !== null && d.getTime() !== at.getTime())
-    return {
-      errorTemplate: pack.at,
-      interpolateValues,
-    };
-
-  if (
-    max !== null &&
-    min !== null &&
-    (d.getTime() > max.getTime() || d.getTime() < min.getTime())
-  ) {
-    return {
-      errorTemplate: pack.between,
-      interpolateValues,
-    };
+    if (min !== null && d.getTime() < min.getTime())
+      return {
+        errorTemplate: pack.min,
+        interpolateValues,
+      };
   }
 
-  if (max !== null && d.getTime() > max.getTime())
-    return {
-      errorTemplate: pack.max,
-      interpolateValues,
-    };
+  dateValidator.key = dateValidatorKey;
 
-  if (min !== null && d.getTime() < min.getTime())
-    return {
-      errorTemplate: pack.min,
-      interpolateValues,
-    };
+  return dateValidator;
 };

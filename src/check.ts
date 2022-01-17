@@ -1,4 +1,14 @@
-import { AnyFunction, AnyObject, isArray, isFunction, isObject, isString } from '@lxjx/utils';
+import {
+  AnyFunction,
+  AnyObject,
+  getNamePathValue,
+  isArray,
+  isFunction,
+  isObject,
+  isString,
+  stringifyNamePath,
+  ensureArray,
+} from '@lxjx/utils';
 import {
   Config,
   ErrorTemplateType,
@@ -9,14 +19,7 @@ import {
   Validator,
   Verify,
 } from './types';
-import {
-  ensureArray,
-  fmtValidator,
-  getValue,
-  interpolate,
-  isErrorTemplateInterpolate,
-  stringifyNamePath,
-} from './common';
+import { fmtValidator, interpolate, isErrorTemplateInterpolate } from './common';
 
 /**
  * 获取check api，verify此时还不可操作, 仅可作为引用传递
@@ -31,7 +34,7 @@ export function getCheckApi(conf: Required<Config>, verify: Verify) {
 
     const rejectMeta: RejectMeta = [];
 
-    const getValueByName: Meta['getValueByName'] = name => getValue(source, name);
+    const getValueByName: Meta['getValueByName'] = name => getNamePathValue(source, name);
 
     // 对一项schema执行检测, 返回true时可按需跳过后续schema的验证
     // 如果传入parentNames，会将当前项作为指向并将parentNames与当前name拼接

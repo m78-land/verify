@@ -434,6 +434,12 @@ fn();
 
 ## API
 
+### 内置验证器
+
+请查阅: https://github.com/m78-core/verify/tree/main/src/validator
+
+
+
 ### NamePath
 
 ```typescript
@@ -520,6 +526,8 @@ interface Schema {
  * */
 export interface Validator {
   (meta: Meta): void | ErrorTemplateType | ErrorTemplateInterpolate;
+  /** 可选的验证器标识, 用来帮助判断 */
+  key?: string;
 }
 
 /**
@@ -532,6 +540,8 @@ export interface Validator {
  * */
 export interface AsyncValidator {
   (meta: Meta): Promise<void | ErrorTemplateType | ErrorTemplateInterpolate>;
+  /** 可选的验证器标识, 用来帮助判断 */
+  key?: string;
 }
 ```
 

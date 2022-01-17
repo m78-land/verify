@@ -4,25 +4,6 @@ import { defaultConfig } from './default-config';
 import { getCheckApi } from './check';
 import { simplifiedChinese, english } from './language-pack';
 
-import { required } from './validator/required';
-import { object } from './validator/object';
-import { bool } from './validator/bool';
-import { string } from './validator/string';
-import { array } from './validator/array';
-import { fn } from './validator/fn';
-import { number } from './validator/number';
-import { symbol } from './validator/symbol';
-import { regexp } from './validator/regexp';
-import { regexpString } from './validator/regexp-string';
-import { pattern } from './validator/pattern';
-import { specific } from './validator/specific';
-import { equality } from './validator/equality';
-import { within } from './validator/within';
-import { without } from './validator/without';
-import { url } from './validator/url';
-import { email } from './validator/email';
-import { date } from './validator/date';
-
 function createVerify(config?: Config): Verify {
   const conf = _defaultsDeep(config, defaultConfig) as Required<Config>;
 
@@ -33,27 +14,23 @@ function createVerify(config?: Config): Verify {
   return Object.assign(verify, getCheckApi(conf, verify));
 }
 
+export { simplifiedChinese, english, createVerify };
 export * from './types';
-export {
-  createVerify,
-  simplifiedChinese,
-  english,
-  required,
-  object,
-  bool,
-  string,
-  array,
-  fn,
-  number,
-  symbol,
-  regexp,
-  regexpString,
-  pattern,
-  specific,
-  equality,
-  within,
-  without,
-  url,
-  email,
-  date,
-};
+export * from './validator/required';
+export * from './validator/object';
+export * from './validator/bool';
+export * from './validator/string';
+export * from './validator/array';
+export * from './validator/fn';
+export * from './validator/number';
+export * from './validator/symbol';
+export * from './validator/regexp';
+export * from './validator/regexp-string';
+export * from './validator/pattern';
+export * from './validator/specific';
+export * from './validator/equality';
+export * from './validator/within';
+export * from './validator/without';
+export * from './validator/url';
+export * from './validator/email';
+export * from './validator/date';
