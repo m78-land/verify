@@ -1,5 +1,5 @@
 import { isObject } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const objectValidatorKey = 'verifyObject';
 
@@ -8,6 +8,7 @@ export const objectValidatorKey = 'verifyObject';
  * */
 export const object = () => {
   function objectValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (!isObject(value)) return config.languagePack.object;
   }
 

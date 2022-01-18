@@ -1,4 +1,4 @@
-import { Meta, NamePath } from '@m78/verify';
+import { isVerifyEmpty, Meta, NamePath } from '@m78/verify';
 import { stringifyNamePath } from '@lxjx/utils';
 
 export const equalityValidatorKey = 'verifyEquality';
@@ -8,6 +8,7 @@ export const equalityValidatorKey = 'verifyEquality';
  * */
 export const equality = (name: NamePath, tpl?: string) => {
   function equalityValidator({ value, config, getValueByName }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (getValueByName(name) !== value)
       return {
         errorTemplate: tpl || config.languagePack.equality,

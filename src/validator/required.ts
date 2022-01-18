@@ -4,16 +4,21 @@ import { isEmpty } from '@lxjx/utils';
 export const requiredValidatorKey = 'verifyRequired';
 
 /**
+ * 是否是verify认可的空值 undefined, null ,'', NaN, [], {}, 空白字符
+ * */
+export const isVerifyEmpty = (value: any) => {
+  if (isEmpty(value) && value !== 0 && value !== false) return true;
+  return typeof value === 'string' && value.trim() === '';
+};
+
+/**
  * 必需项，值不能为 undefined, null ,'', NaN, [], {}, 空白字符中的任意一项
  * */
 export const required = () => {
   function requiredValidator({ value, config }: Meta) {
     const msg = config.languagePack.required;
 
-    if (isEmpty(value) && value !== 0 && value !== false) return msg;
-
-    // 空白字符字符
-    if (typeof value === 'string' && value.trim() === '') return msg;
+    if (isVerifyEmpty(value)) return msg;
   }
 
   requiredValidator.key = requiredValidatorKey;

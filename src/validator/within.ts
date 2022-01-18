@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const withinValidatorKey = 'verifyWithin';
 
@@ -7,6 +7,7 @@ export const withinValidatorKey = 'verifyWithin';
  * */
 export const within = (list: any[]) => {
   function withinValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (!list.includes(value))
       return {
         errorTemplate: config.languagePack.within,

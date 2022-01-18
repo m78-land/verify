@@ -1,5 +1,5 @@
 import { isInt, isNumber, isWeakNumber } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 interface Opt {
   max?: number;
@@ -18,6 +18,8 @@ export const numberValidatorKey = 'verifyNumber';
  * */
 export const number = (option?: Opt) => {
   function numberValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
+
     const pack = config.languagePack.number;
 
     const checker = option?.allowNumberString ? isWeakNumber : isNumber;

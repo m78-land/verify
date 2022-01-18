@@ -527,6 +527,7 @@ interface Schema {
  * - 3.An ErrorTemplateInterpolate object containing the error template and interpolation, used to implement template interpolation when extending the languagePack and interpolating is required for custom validators
  *
  * In addition, if an exception occurs inside the validator, the exception will be caught and Error. Message will be used as the Error feedback text
+ * In consideration of generality, the null value verification of the verifier should be completed by the preceding null verifier. For example, in [required(), string()], string should not have null verification capability
  * */
 export interface Validator {
   (meta: Meta): void | ErrorTemplateType | ErrorTemplateInterpolate;

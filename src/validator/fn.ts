@@ -1,5 +1,5 @@
 import { isFunction } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const fnValidatorKey = 'verifyFn';
 
@@ -8,6 +8,7 @@ export const fnValidatorKey = 'verifyFn';
  * */
 export const fn = () => {
   function fnValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (!isFunction(value)) return config.languagePack.fn;
   }
 

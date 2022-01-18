@@ -1,5 +1,5 @@
 import { isRegExp, isString } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const patternValidatorKey = 'verifyPattern';
 
@@ -8,6 +8,8 @@ export const patternValidatorKey = 'verifyPattern';
  * */
 export const pattern = (regexp: string | RegExp, tpl?: string) => {
   function patternValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
+
     let reg = regexp;
 
     if (isString(reg)) {

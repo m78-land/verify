@@ -523,6 +523,7 @@ interface Schema {
  * - 3.一个包含错误模板和插值的ErrorTemplateInterpolate对象，用于实现模板插值，在扩展了languagePack并需要为自定义验证器添加插值时使用
  *
  * 另外，如果验证器内部发生了异常，该异常会被捕获，并使用Error.message来作为错误反馈文本
+ * 考虑到通用性, 验证器验的空值校验应交给其前置的空校验器完成, 比如 [required(), string()] 中, string不应该具有空校验能力
  * */
 export interface Validator {
   (meta: Meta): void | ErrorTemplateType | ErrorTemplateInterpolate;

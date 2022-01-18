@@ -1,5 +1,5 @@
 import { isBoolean } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const boolValidatorKey = 'verifyBool';
 
@@ -8,6 +8,7 @@ export const boolValidatorKey = 'verifyBool';
  * */
 export const bool = () => {
   function boolValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (!isBoolean(value)) return config.languagePack.bool;
   }
 

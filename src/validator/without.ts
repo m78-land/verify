@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const withoutValidatorKey = 'verifyWithout';
 
@@ -7,6 +7,7 @@ export const withoutValidatorKey = 'verifyWithout';
  * */
 export const without = (list: any[]) => {
   function withoutValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (list.includes(value))
       return {
         errorTemplate: config.languagePack.without,

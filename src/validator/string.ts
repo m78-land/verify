@@ -1,5 +1,5 @@
 import { isNumber, isString } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 interface Opt {
   max?: number;
@@ -14,6 +14,8 @@ export const stringValidatorKey = 'verifyString';
  * */
 export const string = (option?: Opt) => {
   function stringValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
+
     const pack = config.languagePack.string;
     if (!isString(value))
       return {

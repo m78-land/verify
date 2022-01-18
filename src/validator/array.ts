@@ -1,5 +1,5 @@
 import { isArray, isNumber } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 interface Opt {
   /** 最大长度 */
@@ -18,6 +18,8 @@ export const arrayValidatorKey = 'verifyArray';
 export const array = (option?: Opt) => {
   function arrayValidator({ value, config }: Meta) {
     const pack = config.languagePack.array;
+
+    if (isVerifyEmpty(value)) return;
 
     if (!isArray(value))
       return {

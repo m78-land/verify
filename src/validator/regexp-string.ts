@@ -1,5 +1,5 @@
 import { isRegExp, isString } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const regexpStringValidatorKey = 'verifyRegexpString';
 
@@ -8,6 +8,7 @@ export const regexpStringValidatorKey = 'verifyRegexpString';
  * */
 export const regexpString = () => {
   function regexpStringValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (!isString(value)) return config.languagePack.regexpString;
     if (!isRegExp(new RegExp(value))) return config.languagePack.regexpString;
   }

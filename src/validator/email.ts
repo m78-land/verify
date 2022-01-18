@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 function isEmail(email: string) {
   return /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(
@@ -13,6 +13,7 @@ export const emailValidatorKey = 'verifyEmail';
  * */
 export const email = () => {
   function emailValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (!isEmail(value)) return config.languagePack.email;
   }
 

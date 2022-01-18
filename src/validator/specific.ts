@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { isVerifyEmpty, Meta } from '@m78/verify';
 
 export const specificValidatorKey = 'verifySpecific';
 
@@ -7,6 +7,7 @@ export const specificValidatorKey = 'verifySpecific';
  * */
 export const specific = (val: any) => {
   function specificValidator({ value, config }: Meta) {
+    if (isVerifyEmpty(value)) return;
     if (val !== value)
       return {
         errorTemplate: config.languagePack.specific,
