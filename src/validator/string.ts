@@ -1,5 +1,6 @@
 import { isNumber, isString } from '@lxjx/utils';
-import { isVerifyEmpty, Meta } from '@m78/verify';
+import { Meta } from '@m78/verify';
+import { isVerifyEmpty } from './required';
 
 interface Opt {
   max?: number;

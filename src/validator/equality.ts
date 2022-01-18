@@ -1,5 +1,6 @@
-import { isVerifyEmpty, Meta, NamePath } from '@m78/verify';
+import { Meta, NamePath } from '@m78/verify';
 import { stringifyNamePath } from '@lxjx/utils';
+import { isVerifyEmpty } from './required';
 
 export const equalityValidatorKey = 'verifyEquality';
 

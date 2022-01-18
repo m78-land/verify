@@ -1,5 +1,6 @@
 import { isObject } from '@lxjx/utils';
-import { isVerifyEmpty, Meta } from '@m78/verify';
+import { Meta } from '@m78/verify';
+import { isVerifyEmpty } from './required';
 
 export const objectValidatorKey = 'verifyObject';
 

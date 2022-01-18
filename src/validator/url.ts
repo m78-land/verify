@@ -1,4 +1,5 @@
-import { isVerifyEmpty, Meta } from '@m78/verify';
+import { Meta } from '@m78/verify';
+import { isVerifyEmpty } from './required';
 
 function isUrl(url: string) {
   return /^((https?|ftp|git|ws):\/\/(([a-zA-Z0-9]+-?)+[a-zA-Z0-9]+\.)+[a-zA-Z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/.test(

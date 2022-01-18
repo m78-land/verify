@@ -1,5 +1,6 @@
 import { datetime, parseDate } from '@lxjx/utils';
-import { isVerifyEmpty, Meta } from '@m78/verify';
+import { Meta } from '@m78/verify';
+import { isVerifyEmpty } from './required';
 
 interface Opt {
   /** 不大于此时间, 传入值为任何能被解析的时间(Date对象、时间戳、日期字符串等) */
