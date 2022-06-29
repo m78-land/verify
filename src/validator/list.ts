@@ -1,4 +1,4 @@
-import { Meta, array } from '@m78/verify';
+import { Meta, array, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 export enum ListValidatorType {
@@ -21,7 +21,7 @@ export const listValidatorKey = 'verifyList';
  * 检测两个集合的覆盖类型, 比如数组值是否包含另list中的所有项, 是否与list完全相等
  * */
 export function list(opt: ListValidatorOpt) {
-  function listValidator(meta: Meta) {
+  const listValidator: Validator = (meta: Meta) => {
     const tpl = meta.config.languagePack.list;
 
     if (isVerifyEmpty(meta.value)) return;
@@ -60,7 +60,7 @@ export function list(opt: ListValidatorOpt) {
         };
       }
     }
-  }
+  };
 
   listValidator.key = listValidatorKey;
 

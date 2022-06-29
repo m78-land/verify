@@ -1,5 +1,5 @@
 import { isNumber, isString } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 interface Opt {
@@ -14,7 +14,7 @@ export const stringValidatorKey = 'verifyString';
  * string验证器
  * */
 export const string = (option?: Opt) => {
-  function stringValidator({ value, config }: Meta) {
+  const stringValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
 
     const pack = config.languagePack.string;
@@ -43,7 +43,7 @@ export const string = (option?: Opt) => {
         errorTemplate: pack.min,
         interpolateValues: option!,
       };
-  }
+  };
 
   stringValidator.key = stringValidatorKey;
 

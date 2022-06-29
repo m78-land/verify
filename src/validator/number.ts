@@ -1,5 +1,5 @@
 import { isInt, isNumber, isWeakNumber } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 interface Opt {
@@ -18,7 +18,7 @@ export const numberValidatorKey = 'verifyNumber';
  * 数字验证器
  * */
 export const number = (option?: Opt) => {
-  function numberValidator({ value, config }: Meta) {
+  const numberValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
 
     const pack = config.languagePack.number;
@@ -59,7 +59,7 @@ export const number = (option?: Opt) => {
         errorTemplate: pack.min,
         interpolateValues: option!,
       };
-  }
+  };
 
   numberValidator.key = numberValidatorKey;
 

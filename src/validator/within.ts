@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 export const withinValidatorKey = 'verifyWithin';
@@ -7,7 +7,7 @@ export const withinValidatorKey = 'verifyWithin';
  * 值必须在给定列表中, 建议仅用于基础类型
  * */
 export const within = (list: any[]) => {
-  function withinValidator({ value, config }: Meta) {
+  const withinValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
     if (!list.includes(value))
       return {
@@ -16,7 +16,7 @@ export const within = (list: any[]) => {
           within: list.join(', '),
         },
       };
-  }
+  };
 
   withinValidator.key = withinValidatorKey;
 

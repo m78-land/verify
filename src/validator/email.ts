@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 function isEmail(email: string) {
@@ -13,10 +13,10 @@ export const emailValidatorKey = 'verifyEmail';
  * 是否为有效email
  * */
 export const email = () => {
-  function emailValidator({ value, config }: Meta) {
+  const emailValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
     if (!isEmail(value)) return config.languagePack.email;
-  }
+  };
 
   emailValidator.key = emailValidatorKey;
 

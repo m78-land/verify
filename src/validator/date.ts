@@ -1,5 +1,5 @@
 import { datetime, parseDate } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 interface Opt {
@@ -17,7 +17,7 @@ export const dateValidatorKey = 'verifyDate';
  * 必须是有效的日期对象或能被解析的日期值(时间戳、日期字符串等)
  * */
 export const date = (option?: Opt) => {
-  function dateValidator({ value, config }: Meta) {
+  const dateValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
 
     const pack = config.languagePack.date;
@@ -69,7 +69,7 @@ export const date = (option?: Opt) => {
         errorTemplate: pack.min,
         interpolateValues,
       };
-  }
+  };
 
   dateValidator.key = dateValidatorKey;
 

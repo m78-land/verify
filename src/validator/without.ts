@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 export const withoutValidatorKey = 'verifyWithout';
@@ -7,7 +7,7 @@ export const withoutValidatorKey = 'verifyWithout';
  * 值必须不在给定列表中, 建议仅用于基础类型
  * */
 export const without = (list: any[]) => {
-  function withoutValidator({ value, config }: Meta) {
+  const withoutValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
     if (list.includes(value))
       return {
@@ -16,7 +16,7 @@ export const without = (list: any[]) => {
           without: list.join(', '),
         },
       };
-  }
+  };
 
   withoutValidator.key = withoutValidatorKey;
 

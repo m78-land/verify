@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isEmpty } from '@lxjx/utils';
 
 export const requiredValidatorKey = 'verifyRequired';
@@ -15,11 +15,11 @@ export const isVerifyEmpty = (value: any) => {
  * 必需项，值不能为 undefined, null ,'', NaN, [], {}, 空白字符中的任意一项
  * */
 export const required = () => {
-  function requiredValidator({ value, config }: Meta) {
+  const requiredValidator: Validator = ({ value, config }: Meta) => {
     const msg = config.languagePack.required;
 
     if (isVerifyEmpty(value)) return msg;
-  }
+  };
 
   requiredValidator.key = requiredValidatorKey;
 

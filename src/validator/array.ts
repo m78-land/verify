@@ -1,5 +1,5 @@
 import { isArray, isNumber } from '@lxjx/utils';
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 interface Opt {
@@ -17,7 +17,7 @@ export const arrayValidatorKey = 'verifyArray';
  * 数组验证器
  * */
 export const array = (option?: Opt) => {
-  function arrayValidator({ value, config }: Meta) {
+  const arrayValidator: Validator = ({ value, config }: Meta) => {
     const pack = config.languagePack.array;
 
     if (isVerifyEmpty(value)) return;
@@ -47,7 +47,7 @@ export const array = (option?: Opt) => {
         errorTemplate: pack.min,
         interpolateValues: option!,
       };
-  }
+  };
 
   arrayValidator.key = arrayValidatorKey;
 

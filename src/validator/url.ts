@@ -1,4 +1,4 @@
-import { Meta } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
 
 function isUrl(url: string) {
@@ -13,10 +13,10 @@ export const urlValidatorKey = 'verifyUrl';
  * 是否为有效url
  * */
 export const url = () => {
-  function urlValidator({ value, config }: Meta) {
+  const urlValidator: Validator = ({ value, config }: Meta) => {
     if (isVerifyEmpty(value)) return;
     if (!isUrl(value)) return config.languagePack.url;
-  }
+  };
 
   urlValidator.key = urlValidatorKey;
 
