@@ -307,7 +307,7 @@ const verify = createVerify({
 import { createVerify } from '@m78/verify';
 
 const verify = createVerify({
-    languagePack: {
+    extendLanguagePack: {
         required: 'this is a required field',
         object: 'must be object',
         // 模板支持插值
@@ -376,6 +376,12 @@ export const english = {
     min: 'Cannot be before {min}',
     at: 'Must be {at}',
     between: 'Must be between {min} ~ {max}',
+  },
+  // match包含额外插值keyword,  list.miss包含额外插值miss, 表示缺少的项
+  match: 'No content matching {keyword}',
+  list: {
+    miss: 'Missing {miss}',
+    diffLength: 'Length does not match',
   },
 };
 ```
@@ -618,6 +624,8 @@ export interface Config {
 export interface CheckConfig {
   /** 此对象会合并到 Meta 中，如果与内置key同名则覆盖内置key */
   extraMeta: AnyObject;
+  /** 不需要定制语言包, 仅需要对其扩展或覆盖时使用此项, 会与默认语言包进行深合并 */
+  extendLanguagePack?: AnyObject;
 }
 ```
 

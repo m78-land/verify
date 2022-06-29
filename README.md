@@ -309,7 +309,7 @@ Some configurations can be modified in the following ways, template configuratio
 import { createVerify } from '@m78/verify';
 
 const verify = createVerify({
-    languagePack: {
+    extendLanguagePack: {
         required: 'this is a required field',
         object: 'must be object',
         // Templates support interpolation
@@ -378,6 +378,12 @@ export const english = {
     min: 'Cannot be before {min}',
     at: 'Must be {at}',
     between: 'Must be between {min} ~ {max}',
+  },
+  // Match contains additional interpolation keywords, list.miss contains an extra interpolation miss, indicating missing items
+  match: 'No content matching {keyword}',
+  list: {
+    miss: 'Missing {miss}',
+    diffLength: 'Length does not match',
   },
 };
 ```
@@ -616,6 +622,8 @@ export interface Config {
    * - Additional interpolation is injected into a particular validator, as you can see in the corresponding validator's documentation
    * */
   languagePack?: AnyObject;
+  /** There is no need to customize the language pack, only use this when you need to extend or overwrite it, and will deeply merge with the default language pack */
+  extendLanguagePack?: AnyObject;
 }
 
 /** The configuration passed in during validation */

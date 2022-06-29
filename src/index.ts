@@ -5,7 +5,11 @@ import { getCheckApi } from './check';
 import { simplifiedChinese, english } from './language-pack';
 
 function createVerify(config?: Config): Verify {
-  const conf = _defaultsDeep(config, defaultConfig) as Required<Config>;
+  const conf = _defaultsDeep(
+    { languagePack: config?.extendLanguagePack },
+    config,
+    defaultConfig,
+  ) as Required<Config>;
 
   const verify: Verify = {
     languagePack: conf.languagePack,

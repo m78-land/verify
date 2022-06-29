@@ -22,6 +22,7 @@ export interface ErrorTemplateInterpolate {
  * */
 export interface Validator {
   (meta: Meta): void | ErrorTemplateType | ErrorTemplateInterpolate;
+
   /** 可选的验证器标识, 用来帮助判断 */
   key?: string;
 }
@@ -36,6 +37,7 @@ export interface Validator {
  * */
 export interface AsyncValidator {
   (meta: Meta): Promise<void | ErrorTemplateType | ErrorTemplateInterpolate>;
+
   /** 可选的验证器标识 */
   key?: string;
 }
@@ -54,6 +56,8 @@ export interface Config {
    * - 在特定的验证器中还会注入额外的插值，具体可以查看对应验证器的文档
    * */
   languagePack?: AnyObject;
+  /** 不需要定制语言包, 仅需要对其扩展或覆盖时使用此项, 会与默认语言包进行深合并 */
+  extendLanguagePack?: AnyObject;
 }
 
 /** 验证时传入的配置 */

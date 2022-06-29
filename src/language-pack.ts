@@ -48,6 +48,12 @@ export const simplifiedChinese = {
     at: '必须是 {at}',
     between: '必须在 {min} ~ {max} 之间',
   },
+  // match包含额外插值keyword,  list.miss包含额外插值miss, 表示缺少的项
+  match: '没有与 {keyword} 匹配的内容',
+  list: {
+    miss: '缺少 {miss}',
+    diffLength: '长度不符',
+  },
 };
 
 export const english = {
@@ -99,5 +105,11 @@ export const english = {
     min: 'Cannot be before {min}',
     at: 'Must be {at}',
     between: 'Must be between {min} ~ {max}',
+  },
+  // match包含额外插值keyword,  list.miss包含额外插值miss, 表示缺少的项
+  match: 'No content matching {keyword}',
+  list: {
+    miss: 'Missing {miss}',
+    diffLength: 'Length does not match',
   },
 };
