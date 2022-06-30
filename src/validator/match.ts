@@ -1,5 +1,6 @@
-import { Meta, string, Validator } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
+import { string } from './string';
 
 export const matchValidatorKey = 'verifyMatch';
 

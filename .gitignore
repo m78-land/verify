@@ -4,6 +4,7 @@ node_modules
 lib
 umd
 esm
+dist
 
 # local env files
 .env.local

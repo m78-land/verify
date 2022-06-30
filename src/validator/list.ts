@@ -1,5 +1,6 @@
-import { Meta, array, Validator } from '@m78/verify';
+import { Meta, Validator } from '@m78/verify';
 import { isVerifyEmpty } from './required';
+import { array } from './array';
 
 export enum ListValidatorType {
   contain = 'contain',
