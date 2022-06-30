@@ -38,3 +38,5 @@ export * from './validator/without';
 export * from './validator/url';
 export * from './validator/email';
 export * from './validator/date';
+export * from './validator/match';
+export * from './validator/list';
