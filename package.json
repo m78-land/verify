@@ -1,6 +1,6 @@
 {
   "name": "@m78/verify",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Your next JS validation library",
   "keywords": [
     "js validation library",
@@ -10,7 +10,7 @@
     "nest validation",
     "async validation"
   ],
-  "main": "index.js",
+  "main": "index.cjs.js",
   "module": "index.js",
   "typings": "./",
   "repository": "https://github.com/m78-core/verify",
