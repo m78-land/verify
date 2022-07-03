@@ -1,4 +1,4 @@
-import type { AnyObject, NamePath } from '@lxjx/utils';
+import { AnyObject, NamePath } from '@lxjx/utils';
 
 /** 错误模板值允许的类型 */
 export type ErrorTemplateType = string | ((meta: Meta) => string);

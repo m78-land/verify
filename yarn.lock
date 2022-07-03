@@ -1096,6 +1096,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.17.2":
+  version "7.18.6"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.18.6.tgz#6a1ef59f838debd670421f8c7f2cbb8da9751580"
+  integrity sha512-t9wi7/AW6XtKahAe20Yw0/mMljKq0B1r2fPdvaAdV/KPDZewFXdaaa6K7lxmZBZ8FBNpCiAT6iHPmd6QO9bKfQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.12.13", "@babel/template@^7.3.3":
   version "7.12.13"
   resolved "https://registry.npm.taobao.org/@babel/template/download/@babel/template-7.12.13.tgz?cache=0&sync_timestamp=1612314730561&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Ftemplate%2Fdownload%2F%40babel%2Ftemplate-7.12.13.tgz#530265be8a2589dbb37523844c5bcb55947fb327"
@@ -1418,11 +1425,12 @@
     "@umijs/fabric" "2.2.0"
     prettier "^2.0.5"
 
-"@lxjx/utils@^1.7.7":
-  version "1.7.7"
-  resolved "https://registry.npmjs.org/@lxjx/utils/-/utils-1.7.7.tgz#c0c9074937d3dc3811e9049ed23090efec54d3c9"
-  integrity sha512-kmfCO32BAS8JinnrP0W7a3po55iObBqlaxOsS5cXlS6NBLkBgoTpXCHBQAI9onNqOPiySokk2gdgn0SvYG/zRw==
+"@lxjx/utils@^1.7.9":
+  version "1.7.9"
+  resolved "https://registry.npmjs.org/@lxjx/utils/-/utils-1.7.9.tgz#f3b6c88e985d9b06eb05711850fc8415ab3ed47a"
+  integrity sha512-OYFCNX3t34AOeaCCj3r3tKRtsmuBxs314L1wNfsQ5G9H6f9C/QGERNuHu/n1T08f3Iwd6xAnpt/2OeumCYifXA==
   dependencies:
+    "@babel/runtime" "^7.17.2"
     lodash "^4.17.21"
     tslib "^2.1.0"
 
