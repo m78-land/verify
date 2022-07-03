@@ -46,7 +46,9 @@ export function getCheckApi(conf: Required<Config>, verify: Verify) {
     ) {
       const validators = fmtValidator(schema.validator);
 
-      const namePath = [...ensureArray(parentNames), ...ensureArray(schema.name)];
+      const parentNamePath = ensureArray(parentNames);
+
+      const namePath = [...parentNamePath, ...ensureArray(schema.name)];
 
       const name = stringifyNamePath(namePath);
       const label = schema.label || name;
@@ -78,6 +80,8 @@ export function getCheckApi(conf: Required<Config>, verify: Verify) {
             schemas,
             getValueByName,
             config: conf,
+            parentNamePath,
+            namePath,
             ..._config?.extraMeta /* 扩展接口 */,
           };
 

@@ -147,7 +147,12 @@ verify
         eachSchema: {
           validator: [array()],
           eachSchema: {
-            validator: [number()],
+            validator: [
+              number(),
+              meta => {
+                console.log(meta, 21);
+              },
+            ],
           },
         },
       },

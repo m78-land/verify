@@ -1,4 +1,4 @@
-import { AnyObject, NamePath } from '@lxjx/utils';
+import type { AnyObject, NamePath } from '@lxjx/utils';
 
 /** 错误模板值允许的类型 */
 export type ErrorTemplateType = string | ((meta: Meta) => string);
@@ -95,6 +95,8 @@ export interface Meta {
   verify: Verify;
   /** Schema.name的字符化 */
   name: string;
+  /** 当前项name */
+  namePath: NamePath;
   /** 对应Schema.label, 未传时与 name相同，用于展示字段名时应始终使用此值 */
   label: string;
   /** 被验证的值 */
@@ -109,6 +111,8 @@ export interface Meta {
   getValueByName: (name: NamePath) => any;
   /** 创建配置 */
   config: Required<Config>;
+  /** 如果在嵌套结构中, 此项为其父级的name */
+  parentNamePath?: NamePath;
 
   /** 其他任意扩展字段 */
   [key: string]: any;
